@@ -34,13 +34,9 @@ Mesmo com essas desvantagens, uma arquitetura orientada a eventos geralmente é 
 
 Não foi encontrado muitas coisas nas pesquiesas de 'Jhipster + Event-driven'. Única coisa importante que foi encontrado foi uma *issue* aberta no projeto do jhipster no github. Link [Implement Asyncapi for Event-driven architecture](https://github.com/jhipster/generator-jhipster/issues/11112) 
 
-![image](/uploads/8c81f28baa2f9764f69c6c76a92d1b4e/image.png)
-
 Depois dessa conversa, decidir procurar sobre o 'Jhipster + Kafka', que foi mencionado no texto. Achei diversos sites sobre a implementação, inclusive uma página do próprio Jhipster que menciona o [kafka](https://www.jhipster.tech/using-kafka/). Resolvi iniciar um projeto jhipster com Kafka.
 
 Seguindo a página do próprio jhipster, temos os seguintes comandos:
-
-![image](/uploads/94e283464ab2a70c44b2d12982a6cebc/image.png)
 
 Segui esses passos:
 
@@ -94,8 +90,6 @@ São tantos beneficios que é dificil descrever todos aqui, mas por que o Jhipst
 
 Ao explorar o projeto criado, vi que a implementação do kafka estava lá, porem uma coisa me deixou pensativo. O kafka estava implementado, porem sem o uso do Spring Stream, era um pacote avulso. Então resolvi realizar uma nova pesquisa, 'Jhipster Spring Kafka'. Após alguns cliques, consigo achar o motivo por não usarem Spring Stream comentada nesta issue [Migrate from spring-cloud-stream to native Apache Kafka client](https://github.com/jhipster/generator-jhipster/issues/9287).
 
-![image](/uploads/31f8b09f36838a8481a509c6cf71d397/image.png)
-
 ### Mas o que é Kafka?
 
 O Apache Kafka é uma plataforma de streaming distribuída. Foi inicialmente concebido como uma fila de mensagens e de código aberto pelo LinkedIn em 2011. Sua comunidade desenvolveu o Kafka para fornecer os principais recursos:
@@ -132,8 +126,6 @@ O RabbitMQ é muito falado como um das melhores ferramentas de event-driven e de
 
 O RabbitMQ é um software de enfileiramento de mensagens, também conhecido como intermediário de mensagens ou gerenciador de filas. Simplesmente falando, é um software onde as filas são definidas, às quais os aplicativos se conectam para transferir uma mensagem ou mensagens.
 
-![image](/uploads/79a5d6124f901b1ca82e11649096d1eb/image.png)
-
 Uma mensagem pode incluir qualquer tipo de informação. Pode, por exemplo, ter informações sobre um processo ou tarefa que deve iniciar em outro aplicativo (que pode até estar em outro servidor) ou pode ser apenas uma simples mensagem de texto. O software gerenciador de filas armazena as mensagens até que um aplicativo receptor se conecte e retire uma mensagem da fila. O aplicativo de recebimento processa a mensagem.
 
 #### Exchanges
@@ -152,8 +144,6 @@ As mensagens não são publicadas diretamente em uma fila; em vez disso, o produ
 1. As mensagens permanecem na fila até serem tratadas por um consumidor
 
 1. O consumidor lida com a mensagem.
-
-![image](/uploads/536b10ec72351a8a3c49f70ffb343036/image.png)
 
 #### Tipos de Exchanges
 
@@ -203,8 +193,6 @@ O projeto Spring AMQP aplica os principais conceitos do Spring ao desenvolviment
 
 O Spring Cloud Stream é um framework mais abstrato, não sendo especifico ao protocolo AMQP, o qual o RabbitMQ trabalha. Alguns dizem ainda que o Spring Cloud Stream foi feita para trabalhar com stream e não com mensagem, exemplo [What benefits does Spring AMQP have over Spring Cloud Stream for Microservices Architecture](https://stackoverflow.com/questions/44275033/what-benefits-does-spring-amqp-have-over-spring-cloud-stream-for-microservices-a)
 
-![image](/uploads/f8513a3aefecc63a938bb46ac8560330/image.png)
-
 Porem ele é bem mais fácil de trabalhar e integrar ao sistema.
 
 Já o framework Spring AMQP reflete totalmente o RabbitMQ. Nele teríamos como utilizar todas as funcionalidades do RabbitMQ.
@@ -220,8 +208,6 @@ Temos bastante recurso para montar o event-driven no nosso software, porem as es
 1.  Definir o Framework que utilizaremos (Spring Stream, Spring AMQP, kafka-clients)
 
 #### Possível arquitetura
-
-![Event-driven_Arch](/uploads/f1d74e027038aefcdaffe60d90520c65/Event-driven_Arch.png)
 
 Todo o código realizado foi disponibilizado [aqui](https://github.com/mirandarfsm/spring-event-driven/):
 
